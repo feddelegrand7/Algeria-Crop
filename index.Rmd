@@ -1,0 +1,101 @@
+---
+title: "Evolutions de la production de quelques produits agricoles en Algérie, de 1961 à 2018 (en Tonnes / Hectare)."
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    theme: spacelab
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+
+```{r, include = FALSE}
+library(tidyverse)
+library(plotly)
+
+crop_algeria <- readRDS(file = "crop_algeria.rds")
+
+
+```
+
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+
+
+### Production de Blé 
+
+```{r message=FALSE, warning=FALSE}
+
+p1 <- ggplot(crop_algeria, aes(x = year, y = wheat_tonnes_per_hectare)) +
+  geom_line(size = 1.2, col = "steelblue") +
+  labs(title = NULL, x = NULL, y = NULL) +
+  scale_x_continuous(breaks = scales::pretty_breaks()) +
+  scale_y_continuous(breaks = scales::pretty_breaks()) +
+  hrbrthemes::theme_modern_rc(plot_title_size = 12, axis_title_size = 12) 
+
+ggplotly(p1, tooltip = "year")
+
+
+```
+
+### Production de riz 
+
+```{r message=FALSE, warning=FALSE}
+
+p2 <- ggplot(crop_algeria, aes(x = year, y = rice_tonnes_per_hectare)) +
+  geom_line(size = 1.2, col = "#8199D1") +
+  labs(title = NULL, x = NULL, y = NULL) +
+  scale_x_continuous(breaks = scales::pretty_breaks()) +
+  scale_y_continuous(breaks = scales::pretty_breaks()) +
+  hrbrthemes::theme_modern_rc(plot_title_size = 12, axis_title_size = 12) 
+
+ggplotly(p2, tooltip = "year")
+
+
+```
+
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### Production de maïs 
+
+```{r message=FALSE, warning=FALSE}
+
+p3 <- ggplot(crop_algeria, aes(x = year, y = maize_tonnes_per_hectare)) +
+  geom_line(size = 1.2, col = "#3ABA38") +
+  labs(title = NULL, x = NULL, y = NULL) +
+  scale_x_continuous(breaks = scales::pretty_breaks()) +
+  scale_y_continuous(breaks = scales::pretty_breaks()) +
+  hrbrthemes::theme_modern_rc(plot_title_size = 12, axis_title_size = 12) 
+
+ggplotly(p3, tooltip = "year")
+
+
+```
+
+### Production de pommes de terre
+
+```{r message=FALSE, warning=FALSE}
+
+p4 <- ggplot(crop_algeria, aes(x = year, y = potatoes_tonnes_per_hectare)) +
+  geom_line(size = 1.2, col = "#FED55F") +
+  labs(title = NULL, x = NULL, y = NULL) +
+  scale_x_continuous(breaks = scales::pretty_breaks()) +
+  scale_y_continuous(breaks = scales::pretty_breaks()) +
+  hrbrthemes::theme_modern_rc(plot_title_size = 12, axis_title_size = 12) 
+
+ggplotly(p4, tooltip = "year")
+
+
+```
+
+
+
+
+
