@@ -1,5 +1,5 @@
 ---
-title: "Evolutions de la production de quelques produits agricoles en Algérie, de 1961 à 2018 (en Tonnes / Hectare)."
+title: "Production agricole en Algérie, de 1961 à 2018 (en Tonnes / Hectare)."
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
